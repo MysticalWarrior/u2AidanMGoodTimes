@@ -41,10 +41,10 @@ namespace u2AidanMGoodTimes
             hour = hour * 100;
 
             //changes the times
-            int pacifiTime = hour - 300;
+            int pacificTime = hour - 300;
             if  (pacifiTime < 0)
             {
-                pacifiTime = pacifiTime + 2400;
+                pacificTime = pacifiTime + 2400;
             }
             int mountainTime = hour - 200;
             if (mountainTime < 0)
@@ -61,7 +61,7 @@ namespace u2AidanMGoodTimes
             int newfoundlandTime = hour + 130;
             
             createLabel("Ottawa", easternTime, minute);
-            createLabel("Victoria", pacifiTime, minute);
+            createLabel("Victoria", pacificTime, minute);
             createLabel("Edmonton", mountainTime, minute);
             createLabel("Winnipeg", centralTime, minute);
             createLabel("Toronto", easternTime, minute);
