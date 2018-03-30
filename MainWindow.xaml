@@ -1,4 +1,4 @@
-﻿<Window x:Class="u2AidanMGoodTimes.MainWindow"
+<Window x:Class="u2AidanMGoodTimes.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <StackPanel x:Name="myStackPanel">
-        <TextBox x:Name="txtInput" Text="1300"/>
-        <Button x:Name="btnRun" Click="btnRun_Click" Content="Run"/>
+        <Label x:Name="lblNotice" Content="Please note that the program will need to be restarted to convert another time"/>
+        <TextBox AcceptsReturn="False" x:Name="txtInput" Text="Please input Ottawa time."/>
+        <Button x:Name="btnRun" Click="btnRun_Click" Content="Convert Time"/>
     </StackPanel>
 </Window>
