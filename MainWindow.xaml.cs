@@ -1,4 +1,10 @@
-﻿using System;
+/*
+ * AidanMcClung
+ * March 30, 2018
+ * u2AidanMGoodTimes
+ * Converts eastern time toi the other time zones in Canada
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,32 +33,46 @@ namespace u2AidanMGoodTimes
 
         private void btnRun_Click(object sender, RoutedEventArgs e)
         {
-            int originalTime;
-            int.TryParse(txtInput.Text, out originalTime);
-            if (originalTime > 2359)
-            {
-                originalTime -= 2400;
-            }
-            int pacifiTime = originalTime - 300;
-            int mountainTime = originalTime - 200;
-            int centralTime = originalTime - 100;
-            int easternTime = originalTime - 0;
-            int atlantictime = originalTime + 100;
-            int newfoundlandTime = originalTime + 130;
+            //gets minute and hour seperatly
+            int minute = 0;
+            int.TryParse(txtInput.Text.Substring(txtInput.Text.Length - 2, 2), out minute);
+            int hour = 0;
+            int.TryParse(txtInput.Text.Substring(0, txtInput.Text.Length - 2), out hour);
+            hour = hour * 100;
 
-            createLabel("Ottawa", originalTime);
-            createLabel("Victoria", pacifiTime);
-            createLabel("Edmonton", mountainTime);
-            createLabel("Winnipeg", centralTime);
-            createLabel("Toronto", easternTime);
-            createLabel("Halifax", atlantictime);
-            createLabel("St. John's", newfoundlandTime);
+            //changes the times
+            int pacifiTime = hour - 300;
+            if  (pacifiTime < 0)
+            {
+                pacifiTime = pacifiTime + 2400;
+            }
+            int mountainTime = hour - 200;
+            if (mountainTime < 0)
+            {
+                mountainTime = mountainTime + 2400;
+            }
+            int centralTime = hour - 100;
+            if (centralTime < 0)
+            {
+                centralTime = centralTime + 2400;
+            }
+            int easternTime = hour;
+            int atlantictime = hour + 100;
+            int newfoundlandTime = hour + 130;
+            
+            createLabel("Ottawa", easternTime, minute);
+            createLabel("Victoria", pacifiTime, minute);
+            createLabel("Edmonton", mountainTime, minute);
+            createLabel("Winnipeg", centralTime, minute);
+            createLabel("Toronto", easternTime, minute);
+            createLabel("Halifax", atlantictime, minute);
+            createLabel("St. John's", newfoundlandTime, minute);
         }
 
-        private void createLabel(string tz, int t)
+        private void createLabel(string tz, int h, int m)
         {
             Label myLabel = new Label();
-            myLabel.Content = t + " in " + tz;
+            myLabel.Content = (h + m).ToString("00") + " in " + tz;
             myStackPanel.Children.Add(myLabel);
         }
     }
