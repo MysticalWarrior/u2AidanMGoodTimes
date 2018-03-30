@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:u2AidanMGoodTimes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Time Converter" Height="350" Width="525">
     <StackPanel x:Name="myStackPanel">
         <Label x:Name="lblNotice" Content="Please note that the program will need to be restarted to convert another time"/>
         <TextBox AcceptsReturn="False" x:Name="txtInput" Text="Please input Ottawa time."/>
